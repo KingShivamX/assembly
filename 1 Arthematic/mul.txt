@@ -1,0 +1,18 @@
+    mov rax, [a]    ; Load first number from memory location 'a' into rax register
+                    ; rax will be multiplied with number in [b]
+                    
+    mul qword[b]    ; Multiply rax with second number stored in memory location 'b'
+                    ; Result of multiplication is stored in rdx:rax pair
+                    ; rdx contains higher 64 bits (overflow)
+                    ; rax contains lower 64 bits of result
+                    
+    mov [c], rax    ; Store lower 64 bits (from rax) into memory location 'c'
+
+    mov rbx, rdx    ; Copy higher 64 bits (from rdx) to rbx
+                    ; because display function expects number in rbx
+    call display    ; Display higher 64 bits (overflow part) first
+                    ; Display function converts hex to ASCII and prints
+
+    mov rbx, [c]    ; Now copy lower 64 bits from memory location 'c' to rbx
+    call display    ; Display lower 64 bits
+                    ; Together these two displays show complete large number
