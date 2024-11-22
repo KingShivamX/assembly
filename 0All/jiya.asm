@@ -719,6 +719,8 @@ jmp printmenu
 st: write msg11,len11
 jmp printmenu
 
+;;
+
 display:
 mov rsi,char_buff
 mov rcx,16

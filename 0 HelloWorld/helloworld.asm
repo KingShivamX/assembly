@@ -14,3 +14,5 @@ _start:
 	mov rax, 60
 	mov rdi, 00
 	syscall
+
+; https://drive.google.com/drive/folders/1vIY5XyfOANbRowQDxyeht52uSckIWYlA
